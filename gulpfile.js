@@ -13,20 +13,37 @@ function serve() {
     watch("src/*.html").on('change', browserSync.reload);
 }
 
+function copyHtml() {
+		return src("src/index.html")
+							.pipe(dest("docs"));
+}
+
+function copyImages() {
+		return src("src/img/**/*")
+							.pipe(dest("docs/img"));
+}
+
+function copyJs() {
+		return src("src/js/**/*.js")
+							.pipe(dest("docs/js"));
+}
+
+function copyFonts() {
+		return src("src/fonts/*")
+							.pipe(dest("docs/fonts"));
+}
+
 function sass() {
     return src("src/sass/**/*.sass")
         .pipe(gulpSass())
         .pipe(concatCss("style.css"))
-        .pipe(dest("src/css"))
+        .pipe(dest("docs/css"))
         .pipe(browserSync.stream());
-}
-
-function js() {
-
 }
 
 exports.serve = serve;
 exports.sass = sass;
+exports.build = series(copyHtml, copyImages, copyJs, copyFonts, sass);
 exports.default = serve;
 
 // Запускаем сервер + отслеживаем sass/html файлы
