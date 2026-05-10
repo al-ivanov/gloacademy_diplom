@@ -4,15 +4,19 @@
   "description": "",
   "main": "gulpfile.js",
   "scripts": {
+    "serve": "gulp serve",
+    "build": "gulp build",
+    "sass": "gulp sass",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "browser-sync": "^2.26.12",
+    "browser-sync": "^2.29.3",
     "gulp": "^4.0.2",
     "gulp-concat-css": "^3.1.0",
-    "gulp-sass": "^4.0.2"
+    "gulp-sass": "^5.1.0",
+    "sass": "^1.70.0"
   }
 }

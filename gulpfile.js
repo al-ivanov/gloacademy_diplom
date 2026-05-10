@@ -1,6 +1,6 @@
 const { series, watch, src, dest } = require('gulp'),
     browserSync  = require('browser-sync').create(),
-    gulpSass         = require('gulp-sass'),
+    gulpSass         = require('gulp-sass')(require('sass')),
     concatCss    = require('gulp-concat-css');
 
 function serve() {
